@@ -15,6 +15,7 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="casual"
         android:text="TextView"
+        
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/chooseGroup"
         app:layout_constraintEnd_toEndOf="parent"
