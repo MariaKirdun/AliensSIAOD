@@ -1,14 +1,11 @@
 <resources>
     <string name="app_name">AliensSIAOD</string>
 
-    <string name="whatRoomColor">What color is the room?</string>
-    <string name="whatRoom">What room do you see?</string>
+    <string name="btn_new_game">New Game</string>
+    <string name="btn_exit">Exit</string>
 
-    <string name="color">Color</string>
-
-    <string name="exitFromCP">Go to the nearest elevator. Go down to the first floor. Take 50 steps forward.</string>
-    <string name="exitFromCamera">Walk 30 steps forward. Enter the bodice and go down to the first floor. Walk 100 steps, turn left, go 50 steps.</string>
-    <string name="exitFromML">Take the nearest elevator to the first floor. Take 50 steps forward.</string>
-    <string name="exitFromFF">Go straight until you see the way out</string>
-
+    <string name="levelSelect">Select Maze</string>
+    <string name="finished_title">Congrats</string>
+    <string name="finished_text">Level Cleared</string>
+    <string name="finished_button">End Game</string>
 </resources>
