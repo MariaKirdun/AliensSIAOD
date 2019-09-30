@@ -107,6 +107,47 @@ public class GameView extends View {
 						(mazeFinishY * totalCellHeight)+(cellHeight*0.75f),
 						red);
 	}
+
+	public void onStep(int keyCode) {
+		boolean moved = false;
+		switch(keyCode) {
+			case R.id.btnUp:
+				moved = maze.move(Maze.UP);
+				break;
+			case R.id.btnDown:
+				moved = maze.move(Maze.DOWN);
+				break;
+			case R.id.btnRight:
+				moved = maze.move(Maze.RIGHT);
+				break;
+			case R.id.btnLeft:
+				moved = maze.move(Maze.LEFT);
+				break;
+		}
+		if(moved) {
+			//the ball was moved so we'll redraw the view
+			invalidate();
+			if(maze.isGameComplete()) {
+				AlertDialog.Builder builder = new AlertDialog.Builder(context);
+				builder.setTitle(context.getText(R.string.finished_title));
+				LayoutInflater inflater = context.getLayoutInflater();
+				View view = inflater.inflate(R.layout.finish, null);
+				builder.setView(view);
+				View closeButton =view.findViewById(R.id.closeGame);
+				closeButton.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View clicked) {
+						if(clicked.getId() == R.id.closeGame) {
+							context.finish();
+						}
+					}
+				});
+				AlertDialog finishDialog = builder.create();
+				finishDialog.show();
+			}
+		}
+	}
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent evt) {
 		boolean moved = false;

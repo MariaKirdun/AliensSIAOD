@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -22,11 +23,11 @@
         android:id="@+id/btnRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
         android:text="@string/right"
-        app:layout_constraintEnd_toStartOf="@+id/btnLetf"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnLeft"
         app:layout_constraintTop_toBottomOf="@+id/btnUp" />
 
     <Button
@@ -35,20 +36,19 @@
         android:layout_height="wrap_content"
         android:text="@string/up"
         app:layout_constraintBottom_toTopOf="@+id/btnDown"
-        app:layout_constraintEnd_toStartOf="@+id/btnLetf"
+        app:layout_constraintEnd_toStartOf="@+id/btnLeft"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnRight"
         app:layout_constraintTop_toBottomOf="@+id/gameView" />
 
     <Button
-        android:id="@+id/btnLetf"
+        android:id="@+id/btnLeft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
         android:text="@string/left"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnRight"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnRight"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnUp" />
 
     <Button
@@ -59,7 +59,7 @@
         android:layout_marginBottom="50dp"
         android:text="down"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnLetf"
+        app:layout_constraintEnd_toStartOf="@+id/btnLeft"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnRight"
         app:layout_constraintTop_toBottomOf="@+id/btnUp" />
