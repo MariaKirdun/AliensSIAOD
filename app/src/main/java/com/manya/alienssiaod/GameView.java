@@ -147,48 +147,4 @@ public class GameView extends View {
 			}
 		}
 	}
-
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent evt) {
-		boolean moved = false;
-		switch(keyCode) {
-			case KeyEvent.KEYCODE_DPAD_UP:
-				moved = maze.move(Maze.UP);
-				break;
-			case KeyEvent.KEYCODE_DPAD_DOWN:
-				moved = maze.move(Maze.DOWN);
-				break;
-			case KeyEvent.KEYCODE_DPAD_RIGHT:
-				moved = maze.move(Maze.RIGHT);
-				break;
-			case KeyEvent.KEYCODE_DPAD_LEFT:
-				moved = maze.move(Maze.LEFT);
-				break;
-			default:
-				return super.onKeyDown(keyCode,evt);
-		}
-		if(moved) {
-			//the ball was moved so we'll redraw the view
-			invalidate();
-			if(maze.isGameComplete()) {
-				AlertDialog.Builder builder = new AlertDialog.Builder(context);
-				builder.setTitle(context.getText(R.string.finished_title));
-				LayoutInflater inflater = context.getLayoutInflater();
-				View view = inflater.inflate(R.layout.finish, null);
-				builder.setView(view);
-				View closeButton =view.findViewById(R.id.closeGame);
-				closeButton.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View clicked) {
-						if(clicked.getId() == R.id.closeGame) {
-							context.finish();
-						}
-					}
-				});
-				AlertDialog finishDialog = builder.create();
-				finishDialog.show();
-			}
-		}
-		return true;
-	}
 }
