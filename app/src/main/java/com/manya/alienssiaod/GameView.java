@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,11 +27,18 @@ public class GameView extends View {
 	private Maze maze;
 	private Activity context;
 	private Paint line, red, background;
-	
-	public GameView(Context context, Maze maze) {
+
+	public GameView(Context context) {
 		super(context);
-		this.context = (Activity)context;
+	}
+
+	public GameView(Context context, AttributeSet attrs) {
+		super(context, attrs);
+	}
+
+	public void setMaze(Context context, Maze maze) {
 		this.maze = maze;
+		this.context = (Activity)context;
 		mazeFinishX = maze.getFinalX();
 		mazeFinishY = maze.getFinalY();
 		mazeSizeX = maze.getMazeWidth();
@@ -44,6 +52,7 @@ public class GameView extends View {
 		setFocusable(true);
 		this.setFocusableInTouchMode(true);
 	}
+
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 		width = (w < h)?w:h;
 		height = width;         //for now square mazes
@@ -55,8 +64,9 @@ public class GameView extends View {
 		red.setTextSize(cellHeight*0.75f);
 		super.onSizeChanged(w, h, oldw, oldh);
 	}
-	
+
 	protected void onDraw(Canvas canvas) {
+		super.onDraw(canvas);
 		//fill in the background
 		canvas.drawRect(0, 0, width, height, background);
 		

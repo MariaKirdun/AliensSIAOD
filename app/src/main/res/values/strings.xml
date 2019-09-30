@@ -8,4 +8,9 @@
     <string name="finished_title">Congrats</string>
     <string name="finished_text">Level Cleared</string>
     <string name="finished_button">End Game</string>
+
+    <string name="up">UP</string>
+    <string name="right">RIGHT</string>
+    <string name="left">LEFT</string>
+    <string name="down">DOWN</string>
 </resources>
